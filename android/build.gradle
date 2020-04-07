@@ -21,8 +21,20 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     lintOptions {
         abortOnError false
+    }
+
+    flavorDimensions "midtransBuild"
+
+    productFlavors {
+        sandbox {
+            dimension "midtransBuild"
+        }
+        production {
+            dimension "midtransBuild"
+        }
     }
 }
 
@@ -35,17 +47,13 @@ repositories {
 }
 
 dependencies {
-    // For using the Veritrans Sandbox
-    // api 'com.midtrans:corekit:1.22.0-SANDBOX'
+    MIDTRANS_SDK_VERSION="1.23.1"
 
-    // For using the Veritrans Production
-    api 'com.midtrans:corekit:1.22.0'
+    sandboxImplementation 'com.midtrans:corekit:${MIDTRANS_SDK_VERSION}-SANDBOX'
+    sandboxImplementation 'com.midtrans:uikit:${MIDTRANS_SDK_VERSION}-SANDBOX' // change the number to the latest version
 
-    // For using the Midtrans Sandbox
-    // api 'com.midtrans:uikit:1.22.0-SANDBOX' // change the number to the latest version
-
-    // For using the Midtrans Production
-    api 'com.midtrans:uikit:1.22.0' // change the number to the latest version
-
-    api 'com.facebook.react:react-native:+'
+    productionImplementation 'com.midtrans:corekit:${MIDTRANS_SDK_VERSION}'
+    productionImplementation 'com.midtrans:uikit:${MIDTRANS_SDK_VERSION}' // change the number to the latest version
+    
+    implementation 'com.facebook.react:react-native:+'
 }
