@@ -47,13 +47,11 @@ repositories {
 }
 
 dependencies {
-    MIDTRANS_SDK_VERSION="1.23.1"
+    sandboxImplementation 'com.midtrans:corekit:1.23.1-SANDBOX'
+    sandboxImplementation 'com.midtrans:uikit:1.23.1-SANDBOX' // change the number to the latest version
 
-    sandboxImplementation 'com.midtrans:corekit:${MIDTRANS_SDK_VERSION}-SANDBOX'
-    sandboxImplementation 'com.midtrans:uikit:${MIDTRANS_SDK_VERSION}-SANDBOX' // change the number to the latest version
-
-    productionImplementation 'com.midtrans:corekit:${MIDTRANS_SDK_VERSION}'
-    productionImplementation 'com.midtrans:uikit:${MIDTRANS_SDK_VERSION}' // change the number to the latest version
+    productionImplementation 'com.midtrans:corekit:1.23.1'
+    productionImplementation 'com.midtrans:uikit:1.23.1' // change the number to the latest version
     
     implementation 'com.facebook.react:react-native:+'
 }
